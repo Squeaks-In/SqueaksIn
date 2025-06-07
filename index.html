@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Squeaks In Courier Service</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
     body {
         font-family: 'Segoe UI', Arial, sans-serif;
@@ -20,15 +22,19 @@
         align-items: center;
         flex-wrap: wrap;
         justify-content: space-between;
+        box-shadow: 0 2px 8px rgba(48,127,254,0.08);
     }
     .logo {
         height: 60px;
         margin-right: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     header h1 {
         font-size: 2rem;
         margin: 0;
         flex: 1;
+        letter-spacing: 1px;
     }
     nav {
         display: flex;
@@ -38,20 +44,28 @@
         color: #fff;
         text-decoration: none;
         font-weight: 500;
-        transition: border-bottom 0.2s;
+        transition: border-bottom 0.2s, color 0.2s;
         border-bottom: 2px solid transparent;
+        padding: 0.2rem 0.5rem;
+        border-radius: 2px;
     }
     nav a:hover {
         border-bottom: 2px solid #fff;
+        color: #ffb300;
+        background: rgba(255,255,255,0.08);
     }
     main {
         padding: 2rem;
-        max-width: 800px;
+        max-width: 900px;
         margin: 0 auto;
     }
     .intro {
         text-align: center;
         margin-bottom: 2.5rem;
+    }
+    .intro h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
     }
     .cta-button {
         background: #ff9800;
@@ -65,6 +79,7 @@
         text-decoration: none;
         display: inline-block;
         transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(255,152,0,0.08);
     }
     .cta-button:hover {
         background: #fb8c00;
@@ -76,18 +91,42 @@
         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         margin-bottom: 2rem;
     }
+    .services h2 {
+        margin-top: 0;
+    }
     .services ul {
-        list-style: disc inside;
+        list-style: none;
         margin: 0;
         padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 0.8rem;
     }
-    .booking-form-section {
+    .services li {
+        padding: 0.7rem 1rem;
+        background: #f7f7fa;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-size: 1.05rem;
+    }
+    .services li i {
+        color: #307ffe;
+        font-size: 1.2rem;
+    }
+    .contact-form-section {
         background: #fff;
         padding: 2rem;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         max-width: 500px;
-        margin: 0 auto;
+        margin: 2rem auto 0 auto;
+    }
+    .contact-form-section h2 {
+        margin-top: 0;
+        text-align: center;
     }
     form label {
         display: block;
@@ -103,6 +142,7 @@
         font-size: 1rem;
         margin-bottom: 0.5rem;
         box-sizing: border-box;
+        background: #f7f7fa;
     }
     form textarea {
         resize: vertical;
@@ -112,6 +152,24 @@
         margin-top: 1rem;
         color: #666;
         font-size: 0.98rem;
+        text-align: center;
+    }
+    .form-submit-btn {
+        background: #307ffe;
+        color: #fff;
+        border: none;
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-top: 1.2rem;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        transition: background 0.2s;
+    }
+    .form-submit-btn:hover {
+        background: #225dc7;
     }
     footer {
         background: #222;
@@ -124,39 +182,76 @@
         color: #ffb300;
         text-decoration: underline;
     }
+    @media (max-width: 600px) {
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        nav {
+            width: 100%;
+            justify-content: flex-start;
+            margin-top: 1rem;
+        }
+        main {
+            padding: 1rem;
+        }
+        .contact-form-section {
+            padding: 1rem;
+        }
+    }
     </style>
 </head>
 <body>
     <header>
-        <img src="<a href="https://imgbb.com/"><img src="https://i.ibb.co/SDVjCMVQ/Viber-image-2025-06-07-12-01-02-760.jpg" alt="Viber_image_2025-06-07_12-01-02-760" border="0"></a>" alt="Squeaks In" class="logo">
+        <img src="https://i.ibb.co/SDVjCMVQ/Viber-image-2025-06-07-12-01-02-760.jpg" alt="Squeaks In" class="logo">
         <h1>Squeaks In Courier Service</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="booking.html">Request a Courier</a>
-            <a href="#contact">Contact</a>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="booking.html"><i class="fas fa-truck"></i> Request a Courier</a>
+            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
         </nav>
     </header>
     <main>
         <section class="intro">
             <h2>Fast, Reliable, and Secure Courier Solutions</h2>
             <p>Your trusted partner for local and regional deliveries. We ensure your packages arrive safely and on time, every time.</p>
-            <a href="booking.html" class="cta-button">Book a Courier Now</a>
+            <a href="booking.html" class="cta-button"><i class="fas fa-calendar-plus"></i> Book a Courier Now</a>
         </section>
         <section class="services">
             <h2>Our Services</h2>
             <ul>
-                <li>Same-day Delivery</li>
-                <li>Scheduled Deliveries</li>
-                <li>Package Tracking</li>
-                <li>Business Solutions</li>
+                <li><i class="fas fa-bolt"></i> Same-day Delivery</li>
+                <li><i class="fas fa-clock"></i> Scheduled Deliveries</li>
+                <li><i class="fas fa-map-marker-alt"></i> Package Tracking</li>
+                <li><i class="fas fa-briefcase"></i> Business Solutions</li>
             </ul>
         </section>
+        <section class="contact-form-section" id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@email.com" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+
+                <button type="submit" class="form-submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+            <div class="form-note">
+                We'll get back to you as soon as possible. Your information is kept confidential.
+            </div>
+        </section>
     </main>
-    <footer id="contact">
-        <h3>Contact Us</h3>
-        <p>Email: <a href="mailto:your@email.com">squeaksin@gmail.com</a></p>
-        <p>Phone: +9607324372</p>
-        <p>Phone: +9609639623</p>
+    <footer>
+        <h3>Contact Details</h3>
+        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:squeaksin@gmail.com">squeaksin@gmail.com</a></p>
+        <p><i class="fas fa-phone"></i> +9607324372 &nbsp; | &nbsp; <i class="fas fa-phone"></i> +9609639623</p>
         <p>&copy; 2025 Squeaks In Courier Service</p>
     </footer>
 </body>
