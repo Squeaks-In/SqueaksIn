@@ -132,6 +132,12 @@
         box-shadow: 0 2px 12px var(--shadow);
         font-weight: 600;
     }
+    .cta-button,
+    .cta-button:visited {
+        color: #fff !important;
+        font-weight: 700;
+        text-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    }
     .cta-button:hover {
         background: linear-gradient(90deg, #fb8c00 60%, var(--accent-light) 100%);
         color: var(--text-light);
@@ -143,6 +149,7 @@
         padding: 2rem 1.5rem;
         box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         margin-bottom: 2rem;
+        border: 2px solid var(--primary-light); /* EDIT BORDER COLOR HERE (light mode) */
     }
     .services h2 {
         margin-top: 0;
@@ -171,6 +178,7 @@
         font-size: 1.08rem;
         box-shadow: 0 2px 8px var(--card-shadow);
         font-weight: 500;
+        border: 2px solid var(--primary-light); /* EDIT BORDER COLOR HERE (light mode) */
     }
     .services li i {
         color: var(--primary);
@@ -183,6 +191,7 @@
         box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         max-width: 500px;
         margin: 2rem auto 0 auto;
+        border: 2px solid var(--primary-light); /* EDIT BORDER COLOR HERE (light mode) */
     }
     .contact-form-section h2 {
         margin-top: 0;
@@ -239,38 +248,94 @@
     }
     .showcase-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-        gap: 1.2rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
         margin-top: 1.5rem;
+        justify-items: center;
+    }
+    @media (max-width: 700px) {
+        .showcase-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
     }
     .showcase-card {
         background: linear-gradient(90deg, var(--bg) 60%, var(--bg-light) 100%);
-        border-radius: 10px;
-        box-shadow: 0 2px 8px var(--card-shadow);
-        padding: 1.2rem 1rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px var(--card-shadow);
+        border: 2px solid var(--primary-light); /* EDIT BORDER COLOR HERE (light mode) */
+        padding: 1.2rem 1rem 1.5rem 1rem;
         text-align: center;
-        transition: transform 0.15s;
+        transition: transform 0.15s, box-shadow 0.15s, border 0.15s;
+        min-height: 260px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        max-width: 320px;
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        animation: cardIn 0.7s cubic-bezier(.4,1.6,.6,1) forwards;
     }
     .showcase-card:hover {
         transform: translateY(-4px) scale(1.03);
-        box-shadow: 0 4px 16px var(--shadow-dark);
+        box-shadow: 0 6px 24px var(--shadow-dark);
+        border-color: var(--accent);
     }
     .showcase-card i {
         font-size: 2.2rem;
         color: var(--primary);
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.7rem;
     }
     .showcase-card h3 {
         margin: 0.5rem 0 0.3rem 0;
         color: var(--primary);
-        font-size: 1.15rem;
+        font-size: 1.18rem;
+        font-weight: 600;
     }
     .showcase-card p {
         color: var(--text);
         font-size: 1rem;
+        flex: 1;
+        margin-bottom: 1.2rem;
     }
+    .showcase-card .cta-button {
+        margin-top: auto;
+        width: 100%;
+    }
+    .showcase-card:nth-child(1) { animation-delay: 0.1s; }
+    .showcase-card:nth-child(2) { animation-delay: 0.2s; }
+    .showcase-card:nth-child(3) { animation-delay: 0.3s; }
+    .showcase-card:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes cardIn {
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    /* Dark mode improvements */
     .dark-mode .showcase-card {
-        background: linear-gradient(90deg, var(--bg) 60%, var(--bg-light) 100%);
+        background: linear-gradient(90deg, #23272f 60%, #2d313a 100%);
+        color: #fff;
+        border: 2px solid #fff; /* EDIT BORDER COLOR HERE (dark mode) */
+        box-shadow: 0 2px 16px rgba(255,179,0,0.10);
+    }
+    .dark-mode .showcase-card i {
+        color: var(--accent);
+    }
+    .dark-mode .showcase-card h3 {
+        color: var(--accent-light);
+    }
+    .dark-mode .section-title,
+    .dark-mode h3,
+    .dark-mode .faq-card strong {
+        color: var(--accent-light) !important;
+    }
+    .dark-mode .faq-card {
+        border: 2px solid #fff; /* EDIT BORDER COLOR HERE (dark mode) */
     }
 
     .company-details {
@@ -321,6 +386,7 @@
         padding: 1rem 1.2rem;
         font-size: 1rem;
         color: var(--text);
+        border: 2px solid var(--primary-light); /* EDIT BORDER COLOR HERE (light mode) */
     }
     .faq-card strong {
         color: var(--primary);
@@ -380,8 +446,8 @@
         background: var(--card-bg);
     }
     .dark-mode .cta-button {
-        background: linear-gradient(90deg, var(--accent) 60%, var(--accent-light) 100%);
-        color: var(--text-light);
+        background: linear-gradient(90deg, #ff9800 60%, #ffd180 100%);
+        color: #fff !important;
     }
     .dark-mode .cta-button:hover {
         background: linear-gradient(90deg, #fb8c00 60%, var(--accent-light) 100%);
@@ -389,12 +455,17 @@
     }
     .dark-mode .services {
         background: var(--card-bg);
+        border: 2px solid #fff; /* EDIT BORDER COLOR HERE (dark mode) */
     }
     .dark-mode .services li {
         background: linear-gradient(90deg, var(--bg) 60%, var(--bg-light) 100%);
+        border: 2px solid #fff; /* EDIT BORDER COLOR HERE (dark mode) */
+        box-shadow: 0 2px 8px rgba(255,179,0,0.18);
     }
     .dark-mode .contact-form-section {
         background: var(--card-bg);
+        border: 2px solid #fff; /* EDIT BORDER COLOR HERE (dark mode) */
+        box-shadow: 0 2px 16px rgba(255,179,0,0.18);
     }
     .dark-mode footer {
         background: linear-gradient(90deg, var(--primary) 60%, var(--primary-light) 100%);
@@ -496,6 +567,119 @@
             gap: 0.5rem;
         }
     }
+
+    /* Modern Contact Form */
+    .modern-contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.1rem;
+        margin-top: 1.2rem;
+    }
+    .modern-form-row {
+        display: flex;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+    }
+    .modern-form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        min-width: 180px;
+    }
+    .modern-form-group label {
+        font-weight: 500;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 1.05rem;
+    }
+    .modern-form-group input,
+    .modern-form-group textarea {
+        padding: 0.7rem 1rem;
+        border-radius: 6px;
+        border: 1.5px solid var(--primary-light);
+        font-size: 1rem;
+        background: var(--bg-light);
+        color: var(--text);
+        transition: border 0.2s, box-shadow 0.2s;
+        outline: none;
+        resize: none;
+    }
+    .modern-form-group input:focus,
+    .modern-form-group textarea:focus {
+        border: 1.5px solid var(--accent);
+        box-shadow: 0 2px 8px var(--card-shadow);
+    }
+    /* Improve contact form colors in dark mode */
+    .dark-mode .modern-contact-form label,
+    .dark-mode .modern-contact-form i {
+        color: var(--accent-light);
+    }
+
+    .dark-mode .modern-form-group input,
+    .dark-mode .modern-form-group textarea {
+        background: #23272f;
+        color: #fff;
+        border: 1.5px solid var(--primary-light);
+    }
+
+    .dark-mode .modern-form-group input::placeholder,
+    .dark-mode .modern-form-group textarea::placeholder {
+        color: #b0b0b0;
+        opacity: 1;
+    }
+
+    .dark-mode .modern-form-group input:focus,
+    .dark-mode .modern-form-group textarea:focus {
+        border: 1.5px solid var(--accent);
+        box-shadow: 0 2px 8px var(--shadow-dark);
+    }
+    @media (max-width: 600px) {
+        .modern-form-row {
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+    }
+
+    /* FAQ Card Improvements for Dark Mode */
+    .dark-mode .faq-card {
+        background: #2d313a;
+        border: 2px solid var(--accent);
+        color: #fff;
+        box-shadow: 0 2px 12px rgba(255,179,0,0.12);
+    }
+    .dark-mode .faq-card strong {
+        color: var(--accent-light) !important;
+    }
+    .dark-mode .faq-card a {
+        color: var(--accent-light) !important;
+        text-decoration: underline;
+    }
+
+    /* Make all icons yellow in dark mode */
+    .dark-mode i,
+    .dark-mode .showcase-card i,
+    .dark-mode .services li i,
+    .dark-mode .contact-form-section i,
+    .dark-mode .faq-card i {
+        color: var(--accent) !important;
+    }
+
+    /* White borders for all main boxes in dark mode */
+    .dark-mode .showcase-card,
+    .dark-mode .services,
+    .dark-mode .services li,
+    .dark-mode .contact-form-section,
+    .dark-mode .faq-card {
+        border: 2px solid #fff !important;
+    }
+
+    /* EDIT BORDER COLOR HERE (dark mode for .intro section) */
+    .dark-mode .intro {
+        border: 2px solid #fff;
+    }
     </style>
 </head>
 <body>
@@ -556,43 +740,16 @@
                     <button class="cta-button" onclick="window.location='#contact'">Get Packaging</button>
                 </div>
                 <div class="showcase-card">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h3>Live Tracking</h3>
-                    <p>Track your shipment in real-time.</p>
-                    <button class="cta-button" onclick="window.location='#contact'">Track Now</button>
-                </div>
-                <div class="showcase-card">
                     <i class="fas fa-briefcase"></i>
                     <h3>Business Solutions</h3>
                     <p>Custom logistics and delivery plans for businesses.</p>
                     <button class="cta-button" onclick="window.location='#contact'">Contact Sales</button>
                 </div>
                 <div class="showcase-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Insurance</h3>
-                    <p>Optional insurance for valuable shipments.</p>
-                    <button class="cta-button" onclick="window.location='#contact'">Learn More</button>
-                </div>
-                <div class="showcase-card">
                     <i class="fas fa-calendar-check"></i>
                     <h3>Scheduled Pickup</h3>
                     <p>Book a pickup at your convenience.</p>
                     <button class="cta-button" onclick="window.location='#contact'">Book Pickup</button>
-                </div>
-            </div>
-            <h3 style="margin-top:2.5rem;color:var(--primary);">Customer Testimonials</h3>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p>"Super fast and reliable! My package arrived the same day. Highly recommended."</p>
-                    <span>- Aisha R.</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Excellent customer service and easy tracking. Will use again!"</p>
-                    <span>- John D.</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Affordable rates and eco-friendly packaging. Love it!"</p>
-                    <span>- Maria S.</span>
                 </div>
             </div>
             <h3 style="margin-top:2.5rem;color:var(--primary);">Frequently Asked Questions</h3>
@@ -602,8 +759,8 @@
                     <p>Click the "Request a Courier" button in the menu or <a href="https://docs.google.com/forms/d/1BzrqCXr4DbmMCJFnE1lJxHokoNsgVypjysVPeKUnHtI/viewform" target="_blank">fill out this form</a>.</p>
                 </div>
                 <div class="faq-card">
-                    <strong>Can I track my package?</strong>
-                    <p>Yes! Use our live tracking feature for real-time updates.</p>
+                    <strong>How much is the charge for the service?</strong>
+                    <p>You can contact us and we will provide you information about our service charges.</p>
                 </div>
                 <div class="faq-card">
                     <strong>What areas do you cover?</strong>
@@ -633,25 +790,30 @@
         <section class="contact-form-section" id="contact">
             <h2><i class="fas fa-envelope-open-text"></i> Contact Us</h2>
             <div class="form-note">
-                <!-- Edit here to write your company details -->
-                For inquiries, please email us at <a href="mailto:info@squeaksin.com">info@squeaksin.com</a> or call us at <strong>(123) 456-7890</strong>.
+                For inquiries, please email us at <a href="mailto:squeaksin@gmail.com">squeaksin@gmail.com</a> or call us at <strong>(123) 456-7890</strong>.
             </div>
-            <!-- Example contact form (edit action attribute to your form handler) -->
-            <form action="https://formspree.io/f/mwkayzgj" method="POST">
-                <input type="hidden" name="_subject" value="New contact form submission!">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required>
+            <form action="add the formfree link here so that way it will be marked as the mail to be sent" method="POST" class="modern-contact-form">
+                <div class="modern-form-row">
+                    <div class="modern-form-group">
+                        <label for="name"><i class="fas fa-user"></i> Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="modern-form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Your Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" required>
+                <div class="modern-form-row">
+                    <div class="modern-form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> Phone Number <span style="color:var(--form-note);font-size:0.95em;">(optional)</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
+                <div class="modern-form-group">
+                    <label for="message"><i class="fas fa-comment-dots"></i> Message</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Type your message here"></textarea>
                 </div>
-                <button type="submit" class="cta-button">
+                <button type="submit" class="cta-button" style="width:100%;margin-top:1.2rem;">
                     <i class="fas fa-paper-plane"></i> Send Message
                 </button>
             </form>
