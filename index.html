@@ -4,55 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Squeaks In Courier Service</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
+    :root {
+        --primary: #307ffe;
+        --primary-light: #6ec6ff;
+        --accent: #ff9800;
+        --accent-light: #ffd180;
+        --bg: #e3f0ff;
+        --bg-light: #f7f7fa;
+        --text: #222;
+        --text-light: #fff;
+        --shadow: rgba(48,127,254,0.10);
+        --shadow-dark: rgba(0,0,0,0.18);
+        --card-bg: #fff;
+        --card-shadow: rgba(48,127,254,0.07);
+        --footer-link: #ffd180;
+        --form-note: #666;
+    }
     body {
-        font-family: 'Segoe UI', Arial, sans-serif;
+        font-family: 'Poppins', Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background: #f7f7fa;
-        color: #222;
+        background: linear-gradient(135deg, var(--bg) 0%, var(--bg-light) 100%);
+        color: var(--text);
+        min-height: 100vh;
+        transition: background 0.3s, color 0.3s;
     }
     header {
-        background: #307ffe;
-        color: #fff;
+        background: linear-gradient(90deg, var(--primary) 60%, var(--primary-light) 100%);
+        color: var(--text-light);
         padding: 1rem 2rem;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         justify-content: space-between;
-        box-shadow: 0 2px 8px rgba(48,127,254,0.08);
+        box-shadow: 0 2px 12px var(--shadow);
+        position: relative;
     }
     .logo {
         height: 60px;
         margin-right: 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        background: var(--card-bg);
+        padding: 4px;
     }
     header h1 {
-        font-size: 2rem;
+        font-size: 2.1rem;
         margin: 0;
         flex: 1;
         letter-spacing: 1px;
+        font-weight: 600;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
     nav {
         display: flex;
         gap: 1.2rem;
     }
     nav a {
-        color: #fff;
+        color: var(--text-light);
         text-decoration: none;
         font-weight: 500;
-        transition: border-bottom 0.2s, color 0.2s;
-        border-bottom: 2px solid transparent;
-        padding: 0.2rem 0.5rem;
-        border-radius: 2px;
+        transition: background 0.2s, color 0.2s;
+        border-radius: 6px;
+        padding: 0.4rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
     }
     nav a:hover {
-        border-bottom: 2px solid #fff;
-        color: #ffb300;
-        background: rgba(255,255,255,0.08);
+        background: var(--text-light);
+        color: var(--primary);
+    }
+    .theme-toggle {
+        background: none;
+        border: none;
+        color: var(--text-light);
+        font-size: 1.4rem;
+        cursor: pointer;
+        margin-left: 1rem;
+        transition: color 0.2s;
+    }
+    .theme-toggle:hover {
+        color: var(--accent);
     }
     main {
         padding: 2rem;
@@ -62,37 +100,57 @@
     .intro {
         text-align: center;
         margin-bottom: 2.5rem;
+        background: var(--card-bg);
+        border-radius: 18px;
+        box-shadow: 0 4px 24px var(--card-shadow);
+        padding: 2.5rem 1.5rem 2rem 1.5rem;
+        position: relative;
+        overflow: hidden;
     }
     .intro h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
         margin-bottom: 0.5rem;
+        color: var(--primary);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
     }
     .cta-button {
-        background: #ff9800;
-        color: #fff;
+        background: linear-gradient(90deg, var(--accent) 60%, var(--accent-light) 100%);
+        color: var(--text-light);
         border: none;
-        padding: 0.8rem 2rem;
-        font-size: 1.1rem;
-        border-radius: 3px;
+        padding: 0.9rem 2.2rem;
+        font-size: 1.15rem;
+        border-radius: 6px;
         cursor: pointer;
-        margin-top: 1.2rem;
+        margin-top: 1.5rem;
         text-decoration: none;
         display: inline-block;
-        transition: background 0.2s;
-        box-shadow: 0 2px 8px rgba(255,152,0,0.08);
+        transition: background 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 12px var(--shadow);
+        font-weight: 600;
     }
     .cta-button:hover {
-        background: #fb8c00;
+        background: linear-gradient(90deg, #fb8c00 60%, var(--accent-light) 100%);
+        color: var(--text-light);
+        box-shadow: 0 4px 16px var(--shadow-dark);
     }
     .services {
-        background: #fff;
-        border-radius: 8px;
-        padding: 1.5rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        background: var(--card-bg);
+        border-radius: 14px;
+        padding: 2rem 1.5rem;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         margin-bottom: 2rem;
     }
     .services h2 {
         margin-top: 0;
+        color: var(--primary);
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
     .services ul {
         list-style: none;
@@ -100,88 +158,76 @@
         padding: 0;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 0.8rem;
+        gap: 1.2rem;
     }
     .services li {
-        padding: 0.7rem 1rem;
-        background: #f7f7fa;
-        border-radius: 5px;
+        padding: 1rem 1.2rem;
+        background: linear-gradient(90deg, var(--bg) 60%, var(--bg-light) 100%);
+        border-radius: 8px;
         margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
         gap: 0.7rem;
-        font-size: 1.05rem;
+        font-size: 1.08rem;
+        box-shadow: 0 2px 8px var(--card-shadow);
+        font-weight: 500;
     }
     .services li i {
-        color: #307ffe;
-        font-size: 1.2rem;
+        color: var(--primary);
+        font-size: 1.3rem;
     }
     .contact-form-section {
-        background: #fff;
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        background: var(--card-bg);
+        padding: 2rem 1.5rem;
+        border-radius: 14px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         max-width: 500px;
         margin: 2rem auto 0 auto;
     }
     .contact-form-section h2 {
         margin-top: 0;
         text-align: center;
-    }
-    form label {
-        display: block;
-        margin-top: 1rem;
-        margin-bottom: 0.3rem;
-        font-weight: 600;
-    }
-    form input, form textarea {
-        width: 100%;
-        padding: 0.7rem;
-        border: 1px solid #bbb;
-        border-radius: 4px;
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-        box-sizing: border-box;
-        background: #f7f7fa;
-    }
-    form textarea {
-        resize: vertical;
-        min-height: 70px;
+        color: var(--primary);
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
     }
     .form-note {
         margin-top: 1rem;
-        color: #666;
-        font-size: 0.98rem;
+        color: var(--form-note);
+        font-size: 1rem;
         text-align: center;
     }
-    .form-submit-btn {
-        background: #307ffe;
-        color: #fff;
-        border: none;
-        padding: 0.8rem 2rem;
-        font-size: 1.1rem;
-        border-radius: 3px;
-        cursor: pointer;
-        margin-top: 1.2rem;
-        text-decoration: none;
-        display: block;
-        width: 100%;
-        transition: background 0.2s;
-    }
-    .form-submit-btn:hover {
-        background: #225dc7;
-    }
     footer {
-        background: #222;
-        color: #fff;
+        background: linear-gradient(90deg, var(--primary) 60%, var(--primary-light) 100%);
+        color: var(--text-light);
         text-align: center;
         padding: 2rem 1rem 1rem 1rem;
         margin-top: 2rem;
+        border-radius: 18px 18px 0 0;
+        box-shadow: 0 -2px 12px var(--shadow);
     }
     footer a {
-        color: #ffb300;
+        color: var(--footer-link);
         text-decoration: underline;
     }
+    /* Ensure all main text uses the --text variable */
+    body, main, .intro, .services, .contact-form-section, .form-note, .services li, .services h2, .contact-form-section h2 {
+        color: var(--text);
+    }
+
+    /* Headings in header/footer use --text-light for contrast */
+    header, header h1, nav a, footer, footer h3, footer p, footer a {
+        color: var(--text-light);
+    }
+
+    /* Make sure links in dark mode are visible */
+    .dark-mode a, .dark-mode nav a, .dark-mode footer a {
+        color: var(--accent-light) !important;
+    }
+
     @media (max-width: 600px) {
         header {
             flex-direction: column;
@@ -195,9 +241,68 @@
         main {
             padding: 1rem;
         }
-        .contact-form-section {
+        .intro, .services, .contact-form-section {
             padding: 1rem;
         }
+    }
+    /* DARK MODE */
+    .dark-mode {
+        --primary: #1a237e;
+        --primary-light: #3949ab;
+        --accent: #ffb300;
+        --accent-light: #ffe082;
+        --bg: #23272f;
+        --bg-light: #181a20;
+        --text: #f7f7fa;
+        --text-light: #fff;
+        --shadow: rgba(26,35,126,0.18);
+        --shadow-dark: rgba(255,179,0,0.18);
+        --card-bg: #23272f;
+        --card-shadow: rgba(26,35,126,0.10);
+        --footer-link: #ffe082;
+        --form-note: #b0b0b0;
+    }
+    .dark-mode body {
+        background: linear-gradient(135deg, var(--bg) 0%, var(--bg-light) 100%);
+        color: var(--text);
+    }
+    .dark-mode header {
+        background: linear-gradient(90deg, var(--primary) 60%, var(--primary-light) 100%);
+        color: var(--text-light);
+    }
+    .dark-mode nav a {
+        color: var(--text-light);
+    }
+    .dark-mode nav a:hover {
+        background: var(--text-light);
+        color: var(--primary);
+    }
+    .dark-mode .logo {
+        background: var(--card-bg);
+    }
+    .dark-mode .cta-button {
+        background: linear-gradient(90deg, var(--accent) 60%, var(--accent-light) 100%);
+        color: var(--text-light);
+    }
+    .dark-mode .cta-button:hover {
+        background: linear-gradient(90deg, #fb8c00 60%, var(--accent-light) 100%);
+        color: var(--text-light);
+    }
+    .dark-mode .services {
+        background: var(--card-bg);
+    }
+    .dark-mode .services li {
+        background: linear-gradient(90deg, var(--bg) 60%, var(--bg-light) 100%);
+    }
+    .dark-mode .contact-form-section {
+        background: var(--card-bg);
+    }
+    .dark-mode footer {
+        background: linear-gradient(90deg, var(--primary) 60%, var(--primary-light) 100%);
+        color: var(--text-light);
+    }
+    .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
+        color: var(--text-light);
     }
     </style>
 </head>
@@ -210,19 +315,20 @@
             <a href="booking.html"><i class="fas fa-truck"></i> Request a Courier</a>
             <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
         </nav>
+        <button class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
     </header>
     <main>
         <section class="intro">
-            <h2>Fast, Reliable, and Secure Courier Solutions</h2>
+            <h2><i class="fas fa-shipping-fast"></i> Fast, Reliable, and Secure Courier Solutions</h2>
             <p>Your trusted partner for local and regional deliveries. We ensure your packages arrive safely and on time, every time.</p>
-            <a href="https://docs.google.com/forms/d/1BzrqCXr4DbmMCJFnE1lJxHokoNsgVypjysVPeKUnHtI/edit?pli=1
-
-this is the link to the form apply it " target="_blank" class="cta-button">
+            <a href="https://docs.google.com/forms/d/1BzrqCXr4DbmMCJFnE1lJxHokoNsgVypjysVPeKUnHtI/viewform" target="_blank" class="cta-button">
                 <i class="fas fa-calendar-plus"></i> Book a Courier Now
             </a>
         </section>
         <section class="services">
-            <h2>Our Services</h2>
+            <h2><i class="fas fa-box-open"></i> Our Services</h2>
             <ul>
                 <li><i class="fas fa-bolt"></i> Same-day Delivery</li>
                 <li><i class="fas fa-clock"></i> Scheduled Deliveries</li>
@@ -231,9 +337,13 @@ this is the link to the form apply it " target="_blank" class="cta-button">
             </ul>
         </section>
         <section class="contact-form-section" id="contact">
-            <h2>Contact Us</h2>
+            <h2><i class="fas fa-envelope-open-text"></i> Contact Us</h2>
             <div class="form-note">
-                We'll get back to you as soon as possible. Your information is kept confidential.
+                <!-- Edit here to write your company details -->
+                <strong>Email:</strong> edit@email.com<br>
+                <strong>Phone:</strong> +1234567890<br>
+                <strong>Address:</strong> Edit here to write your address<br>
+                <strong>Working Hours:</strong> Edit here to write your working hours
             </div>
         </section>
     </main>
@@ -243,5 +353,31 @@ this is the link to the form apply it " target="_blank" class="cta-button">
         <p><i class="fas fa-phone"></i> +9607324372 &nbsp; | &nbsp; <i class="fas fa-phone"></i> +9609639623</p>
         <p>&copy; 2025 Squeaks In Courier Service</p>
     </footer>
+    <script>
+    // Theme toggle logic
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle.querySelector('i');
+    function setTheme(dark) {
+        if (dark) {
+            document.body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            themeToggle.title = "Switch to light mode";
+        } else {
+            document.body.classList.remove('dark-mode');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            themeToggle.title = "Switch to dark mode";
+        }
+    }
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    setTheme(savedTheme === 'dark');
+    themeToggle.addEventListener('click', () => {
+        const isDark = !document.body.classList.contains('dark-mode');
+        setTheme(isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+    </script>
 </body>
 </html>
